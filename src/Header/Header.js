@@ -78,9 +78,16 @@ function Header() {
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">Search</Button>
+                        <Button
+                            style={{ marginRight: "8px" }}
+                            variant="outline-success"
+                        >
+                            Search
+                        </Button>
                     </Form>
-                    <Button style={{ marginLeft: "8px"}} variant="outline-primary">Sign In</Button>
+                    <Navbar.Text>
+                        <Link to={defaultLink + "/login"}>Sign In</Link>
+                    </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
