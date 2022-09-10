@@ -8,10 +8,9 @@ function App() {
         <BrowserRouter>
             <div className="app">
                 <Routes>
-                    {/* Route to redirect "/" to "/home" */}
-                    <Route path="/" element={<Navigate to="/home" />} />
+                    {/* Each Route needs Group3B/ to work on gh-pages, can change later if hosted elsewhere */}
                     {/* Route for Home Page */}
-                    <Route path="/home" element={[<Header />, <Home />]} />
+                    <Route path="Group3B/" element={[<Header />, <Home />]} />
                 </Routes>
             </div>
         </BrowserRouter>
