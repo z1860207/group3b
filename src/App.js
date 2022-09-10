@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Home/Home";
 import Header from "./Header/Header";
+import { defaultLink } from "./constants";
 
 function App() {
     return (
@@ -10,7 +11,7 @@ function App() {
                 <Routes>
                     {/* Each Route needs Group3B/ to work on gh-pages, can change later if hosted elsewhere */}
                     {/* Route for Home Page */}
-                    <Route path="Group3B/" element={[<Header />, <Home />]} />
+                    <Route path={defaultLink} element={[<Header />, <Home />]} />
                 </Routes>
             </div>
         </BrowserRouter>
