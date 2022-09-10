@@ -4,27 +4,59 @@ import { defaultLink } from "../constants";
 // react-bootstrap
 import Container from "react-bootstrap/container";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav"
+import Nav from "react-bootstrap/Nav";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 function Header() {
     console.log(defaultLink);
 
     return (
-        // 
-        <Navbar bg="secondary" expand="lg">
+        <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
-                {/* The Website Title or Logo will go here */}
-                <Link to={defaultLink}>
-                    <Navbar.Brand style={{ color: "white"}}>Title</Navbar.Brand>
+                {/* Logo or Title Here */}
+                <Link to={defaultLink} style={{ textDecoration: "none" }}>
+                    <Navbar.Brand>Logo</Navbar.Brand>
                 </Link>
+                {/* adds hamburger menu for mobile */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        {/* Nav bar links to other parts of website go here */}
-                        <Link to={defaultLink}>
+                        {/* Navbar Links */}
+                        <Link
+                            to={defaultLink}
+                            style={{ textDecoration: "none" }}
+                        >
                             <Nav.Link>Home</Nav.Link>
                         </Link>
+                        <Link
+                            to={defaultLink + ""}
+                            style={{ textDecoration: "none" }}
+                        >
+                            <Nav.Link>Link1</Nav.Link>
+                        </Link>
+                        <Link
+                            to={defaultLink + ""}
+                            style={{ textDecoration: "none" }}
+                        >
+                            <Nav.Link>Link2</Nav.Link>
+                        </Link>
+                        <Link
+                            to={defaultLink + ""}
+                            style={{ textDecoration: "none" }}
+                        >
+                            <Nav.Link>Link3</Nav.Link>
+                        </Link>
                     </Nav>
+                    <Form className="d-flex">
+                        <Form.Control
+                            type="search"
+                            placeholder="Search"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success">Search</Button>
+                    </Form>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
