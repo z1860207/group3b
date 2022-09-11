@@ -11,7 +11,7 @@ function App() {
             <div className="app">
                 <Routes>
                     {/* Each Route needs Group3B/ to work on gh-pages, can change later if hosted elsewhere */}
-                    {/* Route for Home Page */}
+                    {/* Home Page */}
                     <Route
                         path={defaultLink}
                         element={[<Header />, <Home />]}
