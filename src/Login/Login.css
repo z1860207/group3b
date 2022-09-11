@@ -1,0 +1,40 @@
+/* Website Logo */
+.login__logo {
+    text-align: center;
+}
+
+/* border to surround login input */
+.login__border {
+    border: 1px solid gray;
+    border-radius: 1rem;
+    margin: auto;
+    width: 40%;
+}
+
+/* login form */
+.login__form {
+    margin: auto;
+    width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Submit Button */
+.login__button {
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
+
+.login__button:first-child {
+    margin-left: 0px;
+}
+
+.login__button:last-child {
+    margin-right: 0px;
+}
+
+/* Flex box for the sign in and create account buttons */
+.login__signInButtons {
+    display: flex;
+    justify-content: center;
+}
