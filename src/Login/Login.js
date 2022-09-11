@@ -1,13 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Login.css";
 // react-bootstreap
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { defaultLink } from "../constants";
 
 function Login() {
     return (
         <div className="login">
-            <h1 className="login__logo">Logo</h1>
+            <Link to={defaultLink} style={{ textDecoration: "none" }}>
+                <h1 className="login__logo">Logo</h1>
+            </Link>
             <div className="login__border">
                 <Form className="login__form">
                     {/* Email input */}
