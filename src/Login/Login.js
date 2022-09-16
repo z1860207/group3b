@@ -8,7 +8,7 @@ import { defaultLink } from "../constants";
 
 function Login() {     
     function export_JSON () {
-        event.preventDefault();
+        window.event.preventDefault();
         const form = document.getElementById('login__form');
         const input_email = form.elements['formBasicEmail']
         const input_password = form.elements['formBasicPassword']
@@ -62,7 +62,7 @@ function Login() {
                             </Button>
                         </div>
                         <div className="login__button">
-                            <Button variant="primary" type="submit" onclick={export_JSON}>
+                            <Button variant="primary" type="submit" onSubmit={export_JSON}>
                                 Create Account
                             </Button>
                         </div>
