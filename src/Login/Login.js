@@ -8,6 +8,7 @@ import { defaultLink } from "../constants";
 
 function Login() {     
     function export_JSON () {
+        event.preventDefault();
         const form = document.getElementById('login__form');
         const input_email = form.elements['formBasicEmail']
         const input_password = form.elements['formBasicPassword']
