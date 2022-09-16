@@ -16,10 +16,10 @@ function Login() {
             [field]:value
     })}
 
-    function export_JSON () {
+    function export_JSON (e, p) {
         //window.event.preventDefault()
-        var input_email = form.formBasicEmail
-        var input_password = form.formBasicPassword
+        var input_email = e
+        var input_password = p
         
         let xhr = new XMLHttpRequest();
         let url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
@@ -43,7 +43,7 @@ function Login() {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        export_JSON()
+        export_JSON(form.formBasicEmail, form.formBasicPassword)
     }
     return (  
         <div className="login">
@@ -56,15 +56,11 @@ function Login() {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
-                        value = {form.formBasicEmail}
-                        onChange = {(e) => setField('formBasicEmail', e.target.value)}
                     </Form.Group>
                     {/* Password input */}
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password"/>
-                        value = {form.formBasicPassword}
-                        onChange = {(e) => setField('formBasicPassword', e.target.value)}
                     </Form.Group>
                     {/* Save Login Details Checkbox */}
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
