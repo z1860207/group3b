@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 // react-bootstrap
@@ -7,11 +7,19 @@ import Button from "react-bootstrap/Button";
 import { defaultLink } from "../constants";
 
 function Login() {     
+
+    const [form, setForm] = useState({})
+    const [errors, setErrors] = useState({})
+    const setField = (field, value) => {
+        setForm({
+            ...form,
+            [field]:value
+    })
+    var email;
+    var password;
+
     function export_JSON () {
-        window.event.preventDefault();
-        const form = document.getElementById('login__form');
-        const input_email = form.elements[0]
-        const input_password = form.elements[1]
+        //window.event.preventDefault()
         
         let xhr = new XMLHttpRequest();
         let url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
@@ -32,12 +40,11 @@ function Login() {
     
         var user_credentials = JSON.stringify({"email": input_email, "password": input_password});
         xhr.send(user_credentials);       
-}
-
-const handleSubmit = (e) => {
-    e.preventDefault()
-    export_JSON()
-}
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        export_JSON()
+    }
     return (  
         <div className="login">
             <Link to={defaultLink} style={{ textDecoration: "none" }}>
@@ -49,11 +56,15 @@ const handleSubmit = (e) => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
+                        input_email = {form.formBasicEmail}
+                        onChange = {(e) => setField('formBasicEmail', e.target.value)}
                     </Form.Group>
                     {/* Password input */}
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password"/>
+                        input_password = {form.formBasicPassword}
+                        onChange = {(e) => setField('formBasicPassword', e.target.value)}
                     </Form.Group>
                     {/* Save Login Details Checkbox */}
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -66,11 +77,9 @@ const handleSubmit = (e) => {
                             </Button>
                         </div>
                         <div className="login__button">
-                        <Form onSubmit={handleSubmit}>
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary" onClick={handleSubmit} type="submit">
                                 Create Account
                             </Button>
-                        </Form>
                         </div>
                     </div>
                 </Form>
