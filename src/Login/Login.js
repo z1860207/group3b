@@ -77,7 +77,7 @@ function Login() {
                             </Button>
                         </div>
                         <div className="login__button">
-                            <Button variant="primary" onClick={this.handleSubmit} type="submit">
+                            <Button variant="primary" onClick={handleSubmit} type="submit">
                                 Create Account
                             </Button>
                         </div>
