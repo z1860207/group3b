@@ -15,8 +15,6 @@ function Login() {
             ...form,
             [field]:value
     })}
-    var email;
-    var password;
 
     function export_JSON () {
         //window.event.preventDefault()
@@ -58,12 +56,14 @@ function Login() {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
+                        value = {form.formBasicEmail}
                         onChange = {(e) => setField('formBasicEmail', e.target.value)}
                     </Form.Group>
                     {/* Password input */}
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password"/>
+                        value = {form.formBasicPassword}
                         onChange = {(e) => setField('formBasicPassword', e.target.value)}
                     </Form.Group>
                     {/* Save Login Details Checkbox */}
@@ -77,7 +77,7 @@ function Login() {
                             </Button>
                         </div>
                         <div className="login__button">
-                            <Button variant="primary" onClick={handleSubmit} type="submit">
+                            <Button variant="primary" onClick={this.handleSubmit} type="submit">
                                 Create Account
                             </Button>
                         </div>
