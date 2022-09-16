@@ -61,11 +61,13 @@ function Login() {
                                 Sign In
                             </Button>
                         </div>
+                        <Form onSubmit={export_JSON}>
                         <div className="login__button">
-                            <Button variant="primary" type="submit" onSubmit={export_JSON}>
+                            <Button variant="primary" type="submit">
                                 Create Account
                             </Button>
                         </div>
+                        </Form>
                     </div>
                 </Form>
             </div>
