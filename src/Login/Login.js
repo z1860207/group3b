@@ -10,8 +10,8 @@ function Login() {
     function export_JSON () {
         window.event.preventDefault();
         const form = document.getElementById('login__form');
-        const input_email = form.elements['formBasicEmail']
-        const input_password = form.elements['formBasicPassword']
+        const input_email = form.elements[0]
+        const input_password = form.elements[1]
         
         let xhr = new XMLHttpRequest();
         let url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
