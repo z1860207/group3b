@@ -31,11 +31,9 @@ function Login() {
      
             // Create a state change callback
             //xhr.onreadystatechange = function () {
-            //    if (xhr.readyState === 4 && xhr.status === 200) {
+                //if (xhr.readyState === 4 && xhr.status === 200) {
                     // TODO:ERROR - Print received data from server
-                    //result.innerHTML = this.responseText; 
-            //    }
-        };
+                    //result.innerHTML = this.responseText; }};
     
         var user_credentials = JSON.stringify({"email": input_email, "password": input_password});
         xhr.send(user_credentials);       
