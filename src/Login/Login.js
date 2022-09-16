@@ -34,6 +34,10 @@ function Login() {
         xhr.send(user_credentials);       
 }
 
+const handleSubmit = (e) => {
+    e.preventDefault()
+    export_JSON()
+}
     return (  
         <div className="login">
             <Link to={defaultLink} style={{ textDecoration: "none" }}>
@@ -53,7 +57,7 @@ function Login() {
                     </Form.Group>
                     {/* Save Login Details Checkbox */}
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Save Credentials" />
+                        <Form.Check type="checkbox" label="Remember Me" />
                     </Form.Group>
                     <div className="login__signInButtons">
                         <div className="login__button">
@@ -61,13 +65,13 @@ function Login() {
                                 Sign In
                             </Button>
                         </div>
-                        <Form onSubmit={export_JSON}>
                         <div className="login__button">
+                        <Form onSubmit={handleSubmit}>
                             <Button variant="primary" type="submit">
                                 Create Account
                             </Button>
-                        </div>
                         </Form>
+                        </div>
                     </div>
                 </Form>
             </div>
