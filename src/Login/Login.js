@@ -14,12 +14,14 @@ function Login() {
         setForm({
             ...form,
             [field]:value
-    })
+    })}
     var email;
     var password;
 
     function export_JSON () {
         //window.event.preventDefault()
+        var input_email = form.formBasicEmail
+        var input_password = form.formBasicPassword
         
         let xhr = new XMLHttpRequest();
         let url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
@@ -56,14 +58,12 @@ function Login() {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
-                        input_email = {form.formBasicEmail}
                         onChange = {(e) => setField('formBasicEmail', e.target.value)}
                     </Form.Group>
                     {/* Password input */}
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password"/>
-                        input_password = {form.formBasicPassword}
                         onChange = {(e) => setField('formBasicPassword', e.target.value)}
                     </Form.Group>
                     {/* Save Login Details Checkbox */}
@@ -88,4 +88,3 @@ function Login() {
     );
 }
 export default Login;
-
