@@ -22,16 +22,16 @@ function Login() {
             xhr.setRequestHeader("Content-Type", "application/json");
      
             // Create a state change callback
-            //xhr.onreadystatechange = function () {
-                //if (xhr.readyState === 4 && xhr.status === 200) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
                     // TODO:ERROR - Print received data from server
-                    //result.innerHTML = this.responseText; }};
+                    result.innerHTML = this.responseText; }};
     
         var user_credentials = JSON.stringify({"email": input_email, "password": input_password});
         xhr.send(user_credentials);       
     }
     const handleSubmit = (e) => {
-        e.preventDefault()
+        //e.preventDefault()
         /*let user = {
             input_email: document.getElementById(formBasicEmail).value,
             input_password: document.getElementById(formBasicPassword).value
@@ -45,7 +45,6 @@ function Login() {
             </Link>
             <div className="login__border">
                 <Form className="login__form">
-                    {/* Email input */}
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email Address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
