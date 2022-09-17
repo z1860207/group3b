@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 // react-bootstrap
@@ -18,8 +18,8 @@ function Login() {
 
     function export_JSON (e, p) {
         //window.event.preventDefault()
-        var input_email = e
-        var input_password = p
+        let input_email = e
+        let input_password = p
         
         let xhr = new XMLHttpRequest();
         let url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
@@ -70,12 +70,21 @@ function Login() {
                             </Button>
                         </div>
                         <div className="login__button">
-                            <Button variant="primary" onClick={handleSubmit} type="submit">
+                            <Button variant="primary" onClick={handleSubmit} type="submit" controlId="create">
                                 Create Account
                             </Button>
                         </div>
                     </div>
-                </Form>
+                </Form> 
+                <Script>
+                    let emails = [];
+                    const addEmail = (ev)=>{
+                        
+                    }
+                    document.addEventListener('DOMContentLoaded', () => {
+                        document.getElementById('create').addEventListener('click', addEmail);
+                    });
+                </Script>
             </div>
         </div>
     );
