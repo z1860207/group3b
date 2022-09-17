@@ -40,7 +40,11 @@ function Login() {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        export_JSON(form.formBasicEmail, form.formBasicPassword)
+        /*let user = {
+            input_email: document.getElementById(formBasicEmail).value,
+            input_password: document.getElementById(formBasicPassword).value
+        }*/
+        export_JSON(document.getElementById('formBasicEmail'), document.getElementById('formBasicPassword'))
     }
     return (  
         <div className="login">
@@ -65,26 +69,17 @@ function Login() {
                     </Form.Group>
                     <div className="login__signInButtons">
                         <div className="login__button">
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary" type="submit" controlID="login_btn">
                                 Sign In
                             </Button>
                         </div>
                         <div className="login__button">
-                            <Button variant="primary" onClick={handleSubmit} type="submit" controlId="create">
+                            <Button variant="primary" onClick={handleSubmit} type="submit" controlId="create_btn">
                                 Create Account
                             </Button>
                         </div>
                     </div>
-                </Form> 
-                <Script>
-                    let emails = [];
-                    const addEmail = (ev)=>{
-                        
-                    }
-                    document.addEventListener('DOMContentLoaded', () => {
-                        document.getElementById('create').addEventListener('click', addEmail);
-                    });
-                </Script>
+                </Form>   
             </div>
         </div>
     );
