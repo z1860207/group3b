@@ -8,7 +8,7 @@ import { defaultLink } from "../constants";
 
 function Login() {     
 
-    function export_JSON (e, p) {
+    /*function export_JSON (e, p) {
         //window.event.preventDefault()
         let input_email = e
         let input_password = p
@@ -29,14 +29,27 @@ function Login() {
     
         var user_credentials = JSON.stringify({"email": input_email, "password": input_password});
         xhr.send(user_credentials);       
-    }
+    }*/
     const handleSubmit = (e) => {
+        const axios = require('axios');
+
+        async function doPostRequest() {
+    
+        let payload = { email: 'garythesnail69@yahoo.com', password: 'meow' };
+    
+        let res = await axios.post('https://students.cs.niu.edu/~z1860207/Group3B/submit.php', payload);
+    
+        let data = res.data;
+        console.log(data);
+    }
+    
+        doPostRequest();
         //e.preventDefault()
         /*let user = {
             input_email: document.getElementById(formBasicEmail).value,
             input_password: document.getElementById(formBasicPassword).value
         }*/
-        export_JSON(document.getElementById('formBasicEmail'), document.getElementById('formBasicPassword'))
+        //export_JSON(document.getElementById('formBasicEmail'), document.getElementById('formBasicPassword'))
     }
     return (  
         <div className="login">
