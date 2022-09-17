@@ -8,14 +8,6 @@ import { defaultLink } from "../constants";
 
 function Login() {     
 
-    const [form, setForm] = useState({})
-    const [errors, setErrors] = useState({})
-    const setField = (field, value) => {
-        setForm({
-            ...form,
-            [field]:value
-    })}
-
     function export_JSON (e, p) {
         //window.event.preventDefault()
         let input_email = e
