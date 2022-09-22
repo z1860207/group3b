@@ -5,6 +5,7 @@ import { defaultLink } from "../constants";
 // react-bootstrap
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import axios from 'axios';
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -15,6 +16,19 @@ function Login() {
 
         //do something with email and password
         console.log(email, password);
+        if (email.length === 0 || password.length === 0){
+            alert("Invalid email or password!")
+        }
+        else {
+            const url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
+            let fData = new FormData();
+            fData.append('email', email);
+            fData.append('password',password);
+
+            axios.post(url, fData)
+            .then(response=>alert(response.data))
+            .catch(error=>alert(error));
+        }
     };
 
     const register = (e) => {
@@ -22,6 +36,19 @@ function Login() {
 
         //do something with email and password
         console.log(email, password);
+        if (email.length === 0 || password.length === 0){
+            alert("Invalid email or password!")
+        }
+        else {
+            const url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
+            let fData = new FormData();
+            fData.append('email', email);
+            fData.append('password',password);
+
+            axios.post(url, fData)
+            .then(response=>alert(response.data))
+            .catch(error=>alert(error));
+        }
     };
 
     function export_JSON() {
