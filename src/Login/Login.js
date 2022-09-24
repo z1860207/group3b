@@ -6,6 +6,7 @@ import { defaultLink } from "../constants";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
+import qs from 'qs';
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -20,12 +21,17 @@ function Login() {
             alert("Invalid email or password!")
         }
         else {
-            const url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
+            const url = "https://students.cs.niu.edu/~z1860207/submit.php";
             let fData = new FormData();
-            fData.append('email', email);
-            fData.append('password',password);
+            fData.append("email", email);
+            fData.append("password", password);
 
-            axios.post(url, fData)
+            axios.post(url, fData, 
+                {
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                  })
             .then(response=>alert(response.data))
             .catch(error=>alert(error));
         }
@@ -40,10 +46,10 @@ function Login() {
             alert("Invalid email or password!")
         }
         else {
-            const url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
+            const url = "https://students.cs.niu.edu/~z1860207/submit.php";
             let fData = new FormData();
             fData.append('email', email);
-            fData.append('password',password);
+            fData.append('password', password);
 
             axios.post(url, fData)
             .then(response=>alert(response.data))
