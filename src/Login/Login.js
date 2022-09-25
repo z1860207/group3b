@@ -6,7 +6,6 @@ import { defaultLink } from "../constants";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
-import qs from 'qs';
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -21,7 +20,7 @@ function Login() {
             alert("Invalid email or password!")
         }
         else {
-            const url = "https://students.cs.niu.edu/~z1860207/submit.php";
+            const url = "https://students.cs.niu.edu/~z1860207/login.php";
             let fData = new FormData();
             fData.append("email", email);
             fData.append("password", password);
@@ -46,44 +45,21 @@ function Login() {
             alert("Invalid email or password!")
         }
         else {
-            const url = "https://students.cs.niu.edu/~z1860207/submit.php";
+            const url = "https://students.cs.niu.edu/~z1860207/create.php";
             let fData = new FormData();
-            fData.append('email', email);
-            fData.append('password', password);
-n
-            axios.post(url, fData)
+            fData.append("email", email);
+            fData.append("password", password);
+
+            axios.post(url, fData, 
+                {
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                  })
             .then(response=>alert(response.data))
             .catch(error=>alert(error));
         }
     };
-
-    function export_JSON() {
-        const form = document.getElementById("login__form");
-        const input_email = form.elements["formBasicEmail"];
-        const input_password = form.elements["formBasicPassword"];
-
-        let xhr = new XMLHttpRequest();
-        let url = "https://students.cs.niu.edu/~z1860207/Group3B/submit.php";
-
-        xhr.open("POST", url, true);
-
-        // Set the request header i.e. which type of content you are sending
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        // Create a state change callback
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // TODO:ERROR - Print received data from server
-                //result.innerHTML = this.responseText;
-            }
-        };
-
-        var user_credentials = JSON.stringify({
-            email: input_email,
-            password: input_password,
-        });
-        xhr.send(user_credentials);
-    }
 
     return (
         <div className="login">
